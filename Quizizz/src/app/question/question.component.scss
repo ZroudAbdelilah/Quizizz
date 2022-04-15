@@ -1,3 +1,8 @@
+.options{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2,1fr);
+}
 .card{
     max-width: 800px;
     margin: 0 auto;
@@ -13,4 +18,22 @@ li .card:hover{
 }
 ol{
     padding: 0;
+}
+.options ol li .card {
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 8px;
+    background: #eee;
+    box-shadow: #eee 0px 3px 8px;
+}
+.options ol li {
+    margin: 0;
+}
+.options ol {
+    margin: 0;
+}
+body{
+    background-image: url("https://images.unsplash.com/photo-1613255991070-1d3ba538e085?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
 }
