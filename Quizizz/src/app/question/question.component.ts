@@ -21,9 +21,12 @@ export  class QuestionComponent implements OnInit {
   constructor(private questionService : QuestionService) { }
 
   ngOnInit(): void {
+    this.playSound();
     this.name = localStorage.getItem("name")!;
     this.getAllQuestions();
     this.startCounter();
+
+    
   }
   getAllQuestions(){
     this.questionService.getQuestionJson()
@@ -39,6 +42,7 @@ export  class QuestionComponent implements OnInit {
     this.currentQuestion--;
   }
   answer(currentQno:number,option:any){
+    
     if(currentQno === this.questionList.length){
       this.isQuizCompleted= true;
       this.stopCounter();
@@ -65,6 +69,7 @@ export  class QuestionComponent implements OnInit {
     }
   }
   startCounter(){
+    
     this.interval$ = interval(1000)
     .subscribe(val=>{
       this.counter--;
@@ -101,4 +106,12 @@ export  class QuestionComponent implements OnInit {
     
     return this.progress;
   }
+  playSound(){
+    let audio = new Audio();
+    audio.src= "../assets/Electric  - 5 Minute Countdown.wav"
+    audio.load();
+    audio.play();
+  }
+ 
+  
 }
